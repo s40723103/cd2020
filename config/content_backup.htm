@@ -14,3 +14,75 @@
 <p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
 <p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
 <h1>Week</h1>
+<h2>week2</h2>
+<p>升級python 3.8.2版本</p>
+<p>步驟1:</p>
+<p>前往python官網並下載指定版本</p>
+<p></p>
+<p><img alt="" height="376" src="/images/chrome_ECTUUEYqdg.png" width="900"/></p>
+<p>步驟2:</p>
+<p>打開python 3.8.2下載好之檔案，點選<span style="color: #ff6600;">customize installation<span style="color: #000000;">，並按下一步</span></span></p>
+<p><span style="color: #ff6600;"><span style="color: #000000;">將pip選項取消掉，按下一步</span></span></p>
+<p><span style="color: #ff6600;"><span style="color: #000000;"><img alt="" height="396" src="/images/explorer_YP4KRyJZ6t.png" width="674"/></span></span></p>
+<p><span color="#000000" style="color: #000000;">檔案位置點選Y槽按自己創建出來的空檔按夾P382</span></p>
+<p><span color="#000000" style="color: #000000;"><img alt="" height="410" src="/images/python-3.8.2-amd64_PeEQgHskJt.png" width="667"/></span></p>
+<p>並開始安裝</p>
+<p><img alt="" height="410" src="/images/python-3.8.2-amd64_3VoxtR9Irw.png" width="666"/></p>
+<p>步驟3:</p>
+<p>將start.bat抓到SciTe裡編輯檔案位置(原先為p73改成p382)</p>
+<p><img alt="" height="215" src="/images/explorer_eER0GKZOkc.png" width="664"/></p>
+<p>以下為文字編輯器中的程式碼(為start.bat之內容)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@echo off
+set Disk=y
+subst %Disk%: "data"
+ 
+%Disk%:
+ 
+set HomePath=%Disk%:\home_mdecourse
+set HomeDrive=%Disk%:\home_mdecourse
+set Home=%Disk%:\home_mdecourse
+set USERPROFILE=%Disk%:\home_mdecourse
+ 
+REM 將系統 Python 程式的 io 設為 utf-8
+set PYTHONIOENCODING="utf-8"
+ 
+set PYTHONPATH=%Disk%:\\DLLs;%Disk%:\py382\Lib;%Disk%:\py382\Lib\site-packages;
+set PYTHONHOME=%Disk%:\py382
+ 
+set path_python=%Disk%:\py382;%Disk%:\py382\Scripts;
+set path_msys2=%Disk%:\msys64\mingw64\bin;
+REM coreutils is for compiling fossil scm
+set path_coreutils=%Disk%:\coreutils-5.3.0\bin;%Disk%:\depends22_x64;
+set path_tcc=%Disk%:\tcc;
+set path_cmake=%Disk%:\cmake-3.10.1-win64-x64\bin;
+set path_nodejs=Disk%:\nodejs;%Disk%:\nodejs\appdata\roaming\npm;
+set path_git=%Disk%:\portablegit\bin;
+set path_xming=%Disk%:\Xming;
+set path_latex=%%Disk%:\Pandoc;%Disk%:\TinyTeX\bin\win32;
+ 
+path=%Disk%:;%path_python%;%path_msys2%;%path_tcc%;%path_git%;%path_cmake%;%path_coreutils%;
+ 
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+ 
+start /MIN %Disk%:\wscite415\wscite\SciTE.exe
+start /MIN %Disk%:\wscite415\wscite\SciTE.exe
+ 
+Exit</pre>
+<p></p>
+<p></p><h2>week3</h2>
+<p>步驟1:</p>
+<p>前往PYTHON官網並下定版本(PYTHON3.8.2)</p>
+<p><img alt="" height="376" src="/images/chrome_ECTUUEYqdg.png" width="900"/></p>
+<p>步驟2:</p>
+<p>1-打開下載檔案，按<span style="color: #ff6600;">customize installation</span>選項</p>
+<p>2-取消點選pip選項，並按下一步</p>
+<p><img alt="" height="396" src="/images/explorer_YP4KRyJZ6t.png" width="674"/></p>
+<p>3-選取檔案位置於Y槽之自己創建空檔案夾(名稱p382)</p>
+<p><img alt="" height="410" src="/images/python-3.8.2-amd64_PeEQgHskJt.png" width="667"/></p>
+<p>4-下載完成</p>
+<p><img alt="" height="410" src="/images/python-3.8.2-amd64_3VoxtR9Irw.png" width="666"/></p>
+<p>步驟3:</p>
+<p>將</p><h2>week4</h2>
