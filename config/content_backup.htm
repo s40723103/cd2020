@@ -95,8 +95,7 @@ Exit</pre>
 <p><span style="color: #ff6600;">2-場景與模組</span></p>
 <p><span style="color: #ff6600;">3-環境設定</span></p>
 <p></p><h2>week4</h2>
-<p>需製作分組報告3-5頁，使用pdf檔上傳。</p>
-<h2>week5</h2>
+<p><span style="color: #ff6600;">需製作分組報告3-5頁，使用pdf檔上傳。</span></p>
 <p>在我負責之部分第一項目首先講解到如何開始使用Webots的畫面與視窗，雖然這整本電子書都是在解說Webots介面使用，但在實際使用方面卻有所差別，以下為首要大略提到的標題及小標題的重點與補充說明。</p>
 <p><span style="color: #ff0000;">章節一；開始操作Webots</span></p>
 <p>目錄:</p>
@@ -121,11 +120,57 @@ Exit</pre>
 <p>補充：直接從DOS控制台調用webots.exe可能無法工作，因為某些設置可能會丟失(請參閱webots.bat的內容)。</p>
 <p></p>
 <p><span style="color: #ff0000;">4</span>-<span style="color: #800080;">Command Line Arguments(命令行參數)</span>=從Linux 或 Mac或命令提示符（Windows）啟動Webots時，可以使用以下命令行選項：</p>
+<pre class="brush:plain;auto-links:false;toolbar:false" contenteditable="false">Usage: webots [options] [worldfile]
+
+Options:
+
+  --help
+    Display this help message and exit.
+
+  --version
+    Display version information and exit.
+
+  --sysinfo
+    Display information about the system and exit.
+
+  --mode=&lt;mode&gt;
+    Choose the startup mode, overriding application preferences. The &lt;mode&gt;
+    argument must be either pause, realtime, run or fast.
+
+  --fullscreen
+    Start Webots in fullscreen.
+
+  --minimize
+    Minimize the Webots window on startup.
+
+  --batch
+    Prevent Webots from creating blocking pop-up windows.
+
+  --stdout
+    Redirect the stdout of the controllers to the terminal.
+
+  --stderr
+    Redirect the stderr of the controllers to the terminal.
+
+  --stream[="key[=value];..."]
+    Start the Webots streaming server. Parameters may be
+    given as an option:
+      port=1234          - Start the streaming server on port 1234.
+      monitorActivity    - Print a dot '.' on stdout every 5 seconds.
+      disableTextStreams - Disable the streaming of stdout and stderr.
+
+  --log-performance=&lt;file&gt;[,&lt;steps&gt;]
+    Measure the performance of Webots and log it in the file specified in the
+    &lt;file&gt; argument. The optional &lt;steps&gt; argument is an integer value that
+    specifies how many steps are logged. If the --sysinfo option is used, the
+    system information is prepended into the log file.
+
+Please report any bug to http://www.cyberbotics.com/bug</pre>
 <p></p>
 <p>選擇worldfile參數指定要打開的.wbt文件的名稱。</p>
 <p>如果未指定，則Webots嘗試打開最近打開的文件。</p>
 <p></p>
-<p><br/><span style="color: #ff0000;">--minimize</span>選項用於在啟動時最小化（圖標化）Webots窗口。</p>
+<p><span style="color: #ff0000;">--minimize</span>選項用於在啟動時最小化（圖標化）Webots窗口。</p>
 <p>將跳過啟動屏幕和最終的“歡迎對話框”。</p>
 <p>從選項中自動啟動Webot時，可以使用此選項來避免窗口混亂。</p>
 <p><span style="color: #ff0000;">補充</span>:當指定--minimize時，Webots自動使用快速模式。</p>
@@ -167,6 +212,32 @@ Exit</pre>
 <p>優先選項</p>
 <p>Webots傳訊</p>
 <p>電腦設備</p>
+<h2>week6</h2>
+<p>關於OBS操作說明</p>
+<p>步驟1</p>
+<p>下載可攜式OBS軟體並開啟畫面</p>
+<p>如圖下所示(紅框內為主要為點選區域)</p>
+<p><img alt="" height="439" src="/images/1.png" width="900"/></p>
+<p></p>
+<p>軟體開啟畫面如下</p>
+<p><img alt="" height="634" src="/images/2.png" width="900"/></p>
+<p>由於使用桌電操作，因此並未能有攝像頭影像出現。</p>
+<p>步驟2</p>
+<p>點選圖下畫面中加號符號，並選擇紅框內珠的圖示</p>
+<p><img alt="" height="634" src="/images/3.png" width="900"/></p>
+<p>之後跳出之視窗確認完畢後點選確定</p>
+<p><img alt="" height="346" src="/images/3-1.png" width="354"/></p>
+<p><img alt="" height="612" src="/images/3-2.png" width="722"/></p>
+<p>在下方圖示中如果是筆電設備會有攝像頭的畫面出現，之後將頭像放置在藍框處</p>
+<p><img alt="" height="422" src="/images/3-3.png" width="900"/></p>
+<p>之後按下右下方即可開始錄影。</p>
+<p>第二階段- Youtube金鑰</p>
+<p>步驟1</p>
+<p>登入google帳號並打開youtube，點選直播</p>
+<p><img alt="" height="707" src="/images/5.png" width="302"/></p>
+<p><img alt="" height="149" src="/images/6.png" width="255"/></p>
+<p></p>
+<p>開啟OBS設定，點選串流，平台變更為YOUTUBE</p>
 <p></p>
 <p></p>
 <p></p><h1>problem</h1>
