@@ -287,6 +287,35 @@ img.add_border {
 <p>H:MM:SS:MMM</p>
 <p>其中H是小時數（可以是幾位數字），MM是分鐘數，SS是秒數，MMM是毫秒數（請參見此圖）。如果車速表的值大於1，則虛擬時間的進度要快於實時時間。</p>
 <p>可以在場景樹窗口的WorldInfo節點的basicTimeStep字段中設置模擬的基本時間步長。它以虛擬時間毫秒錶示。該時間步長的值定義了在步進模式下執行的時間步長。此步驟乘以同一WorldInfo節點的displayRefresh字段，以定義刷新顯示的頻率。</p>
+<p>示例Webots應用程序<br/>本章概述了Webots軟件包隨附的示例世界。示例世界可以輕鬆測試。 “ .wbt”文件位於“ WEBOTS_HOME / projects”目錄的各個“世界”目錄中，並且可以使用“文件”菜單中的“打開示例世界”項從Webots直接打開。控制器代碼位於相應的“控制器”目錄中。本章僅提供每個示例的簡短摘要。可以在源代碼中找到更詳細的說明。</p>
+<p>以下為目錄與章節概括含意:</p>
+<p>演示版:本節提供了一個有趣的世界列表，廣泛地說明了Webots的功能。這些例子中有幾個來自研究或教學項目。您將在“ WEBOTS_HOME / projects / samples / demos / worlds”目錄中找到相應的“ .wbt”文件，並在“ WEBOTS_HOME / projects / samples / demos / controllers”目錄中找到它們的控制器源代碼。對於每個演示，world文件及其對應的控制器都具有相同的名稱。</p>
+<p>設備:“ WEBOTS_HOME / projects / samples / devices”目錄包含Webots世界，這些世界分別演示了Webots設備及其API。</p>
+<p>世界文件位於“ WEBOTS_HOME / projects / samples / devices / worlds”目錄中，其控制器位於“ WEBOTS_HOME / projects / samples / devices / controllers”目錄中。世界文件和相應的控制器根據它們演示的設備來命名。</p>
+<p>下面的大多數設備都使用一個名為MyBot的簡單的兩輪藍色機器人，該機器人在有障礙物的封閉方形競技場中移動（請參見下圖）。</p>
+<p>被研究的設備連接到該機器人上。 MyBot使用兩個DistanceSensor以及基於Braitenberg車輛的技術來移動並避開障礙物。<br/>如何:本節提供了複雜行為和/或功能的各種示例。世界文件位於“ WEBOTS_HOME / projects / samples / howto / worlds”目錄中，其控制器位於“ WEBOTS_HOME / projects / samples / howto / controllers”目錄中。對於每個文件，世界文件及其對應的控制器均根據其示例行為進行命名。</p>
+<p>幾何形狀:本節顯示了Webots中可用的幾何圖元。這些示例的世界文件位於“ WEBOTS_HOME / sample / geometries / worlds”目錄中。</p>
+<p>環境:顯示了組合場景中Webot中可用的一些可能的環境和對象。 Webots對像是模塊化且可參數化的，因此可以從這些示例開始輕鬆創建其他環境。這些示例的世界文件位於“ WEBOTS_HOME / projects / sample / environments /”目錄中。<br/>位於“ WEBOTS_HOME /項目/車輛/世界”中的室外和城市環境，此處未顯示。</p>
+<p>渲染圖:本節顯示Webots的高級3D渲染功能。此處提供的樣本可用作使用高級渲染技術創建自己的仿真的起點。</p>
+<p></p>
+<p>Language Setup語言設定<br/>Webots控制器可以用C / C ++，Java，Python或MATLABTM編寫。本章說明如何為您選擇的編程語言安裝軟件開發套件。</p>
+<p>欄目<br/>介紹<br/>控制器啟動<br/>使用C<br/>使用C ++<br/>使用Java<br/>使用Python<br/>使用MATLAB<br/>使用ROS<br/>使用TCP / IP將Webots連接到第三方軟件</p>
+<p></p>
+<p></p>
+<p>Development Environments發環境</p>
+<p>本章說明如何使用內置的開發環境或第三方環境來開發Webots控制器。</p>
+<p>目錄<br/>Webots內置編輯器:Webots源代碼編輯器是一種多選項卡文本編輯器，特別適合於開發Webots控制器。通常建議使用此編輯器，因為它使編譯變得簡單。該編輯器具有針對Webots支持的語言（C / C ++，Java，Python和MATLABTM）的語法突出顯示功能以及針對Webots C API的自動完成功能。</p>
+<p>項目的標准文件層次結構:為了創建Webots可以使用的項目，必須遵循一些規則。本節描述了一個簡單項目的文件層次結構。</p>
+<p>在終端中編譯控制器:可以在終端中編譯Webots控制器，而不必使用內置編輯器。在這種情況下，您需要定義WEBOTS_HOME環境變量並將其指向Webots安裝目錄。 WEBOTS_HOME變量用於在Makefiles中找到Webots頭文件和庫。設置環境變量取決於平台（和外殼）</p>
+<p>使用Webots Makefile:什麼是Makefile<br/>帶有多個源文件的控制器（C / C ++）<br/>使用編譯器和鏈接器標誌（C / C ++）<br/>添加外部庫（C / C ++）<br/>在C ++控制器中使用Webots C API<br/>詳細編譯<br/>添加調試信息</p>
+<p>調試C / C ++控制器:</p>
+<p>使用您的IDE:使用集成開發環境（IDE）十分方便，因為它通常具有高級源代碼編輯工具，內置調試器等功能。幸運的是，您可以使用自己喜歡的IDE開發Webots控制器。</p>
+<p>首先，Webots可與任何IDE一起創建，構建和調試機器人控制器。只需正確設置IDE即可使用Webots控制器的構建規則。</p>
+<p>很難為每個OS記錄每個IDE。因此，此處僅記錄其中一些。它們可以為他人提供參考。</p>
+<p>遠程啟動Webots（ssh）:可以使用ssh（或類似命令）在遠程計算機上啟動Webot。但是，Webots僅能獲得與本地（在同一台計算機上）運行的X服務器的X11連接才能工作。當前無法將Webots圖形輸出重定向到另一台計算機。</p>
+<p>運行Extern機器人控制器:介紹外部機器人控制器及其使用方法。</p>
+<p>轉移到自己的機器人:在移動機器人仿真中，將結果傳輸到真實的移動機器人上通常很有用。 Webots在設計時就考慮了這種傳輸功能。模擬盡可能地逼真，並且編程接口可以移植或連接到現有的真實機器人上。 Webots已經包含了許多現有機器人的傳輸系統，包括e-puckTM，DARwIn-OPTM，KheperaTM和HemissonTM。本節說明如何將自己的傳輸系統開發到自己的移動機器人。</p>
+<p>由於模擬只是真實機器人的物理近似，因此在開發真實機器人的傳輸機制時始終需要進行一些調整。這種調整將影響模擬模型，以便更好地匹配實際機器人的行為。</p>
 <p></p><br />week6 << <a href='week6.html'>Previous</a> <a href='problem.html'>Next</a> >> problem</div>
         
     <!-- footer -->
