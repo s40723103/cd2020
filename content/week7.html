@@ -1,256 +1,160 @@
-<h1>About</h1>
-<p>此內容管理系統以 <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 作為 submodule 運作, 可以選定對應的版本運作, cmsimde 可以持續改版, 不會影響之前設為 submodule, 使用舊版 cmsimde 模組的內容管理相關運作.</p>
-<h4>利用 cmsimde 建立靜態網誌方法:</h4>
-<p>1. 在 github 建立倉儲, git clone 到近端</p>
-<p>2. 參考 <a href="https://github.com/mdecourse/newcms">https://github.com/mdecourse/newcms</a>, 加入除了 cmsimde 目錄外的所有內容</p>
-<p>以 git submodule add <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> cmsimde</p>
-<p>建立 cmsimde 目錄, 並從 github 取下子模組內容.</p>
-<p>3.在近端維護時, 更換目錄到倉儲中的 cmsimde, 以 python wsgi.py 啟動近端網際伺服器.</p>
-<p>動態內容編輯完成後, 以 generate_pages 轉為靜態內容, 以 git add commit 及 push 將內容推到遠端.</p>
-<p>4. 之後若要以 git clone 取下包含 submodule 的所有內容, 執行:</p>
-<p>git clone --recurse-submodules <a href="https://github.com/mdecourse/newcms.git">https://github.com/mdecourse/newcms.git</a></p>
-<h1>Develop</h1>
-<p><a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 的開發, 可以在一個目錄中放入 cmsimde, 然後將 up_dir 中的內容放到與 cmsimde 目錄同位階的地方, 使用 command 進入 cmsimde 目錄, 執行 python wsgi.py, 就可以啟動, 以瀏覽器 https://localhost:9443 就可以連接, 以 admin 作為管理者密碼, 就可以登入維護內容.</p>
-<p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
-<p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
-<h1>Week</h1>
-<p>每周進度更新與定期檢查進度</p><h2>week2</h2>
-<p>升級python 3.8.2版本</p>
-<p></p>
-<p><iframe allowfullscreen="allowfullscreen" height="600" src="//www.youtube.com/embed/E7bvIMTSTSg" width="700"></iframe></p>
-<p>以上為升級python3.8.2之影片</p>
-<p><span style="color: #ff0000;">步驟1:</span></p>
-<p>前往python官網並下載指定版本</p>
-<p></p>
-<p><img alt="" height="376" src="/images/chrome_ECTUUEYqdg.png" width="900"/></p>
-<p><span style="color: #ff0000;">步驟2:</span></p>
-<p>打開python 3.8.2下載好之檔案，點選<span style="color: #ff6600;">customize installation<span style="color: #000000;">，並按下一步</span></span></p>
-<p><span style="color: #ff6600;"><span style="color: #000000;">將pip選項取消掉，按下一步</span></span></p>
-<p><span style="color: #ff6600;"><span style="color: #000000;"><img alt="" height="396" src="/images/explorer_YP4KRyJZ6t.png" width="674"/></span></span></p>
-<p><span color="#000000" style="color: #000000;">檔案位置點選Y槽按自己創建出來的空檔按夾P382</span></p>
-<p><span color="#000000" style="color: #000000;"><img alt="" height="410" src="/images/python-3.8.2-amd64_PeEQgHskJt.png" width="667"/></span></p>
-<p>並開始安裝</p>
-<p><img alt="" height="410" src="/images/python-3.8.2-amd64_3VoxtR9Irw.png" width="666"/></p>
-<p><span style="color: #ff0000;">步驟3:</span></p>
-<p>將start.bat抓到SciTe裡編輯檔案位置(原先為p73改成p382)</p>
-<p><img alt="" height="215" src="/images/explorer_eER0GKZOkc.png" width="664"/></p>
-<p>以下為文字編輯器中的程式碼(為start.bat之內容)</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@echo off
-set Disk=y
-subst %Disk%: "data"
- 
-%Disk%:
- 
-set HomePath=%Disk%:\home_mdecourse
-set HomeDrive=%Disk%:\home_mdecourse
-set Home=%Disk%:\home_mdecourse
-set USERPROFILE=%Disk%:\home_mdecourse
- 
-REM 將系統 Python 程式的 io 設為 utf-8
-set PYTHONIOENCODING="utf-8"
- 
-set PYTHONPATH=%Disk%:\\DLLs;%Disk%:\py382\Lib;%Disk%:\py382\Lib\site-packages;
-set PYTHONHOME=%Disk%:\py382
- 
-set path_python=%Disk%:\py382;%Disk%:\py382\Scripts;
-set path_msys2=%Disk%:\msys64\mingw64\bin;
-REM coreutils is for compiling fossil scm
-set path_coreutils=%Disk%:\coreutils-5.3.0\bin;%Disk%:\depends22_x64;
-set path_tcc=%Disk%:\tcc;
-set path_cmake=%Disk%:\cmake-3.10.1-win64-x64\bin;
-set path_nodejs=Disk%:\nodejs;%Disk%:\nodejs\appdata\roaming\npm;
-set path_git=%Disk%:\portablegit\bin;
-set path_xming=%Disk%:\Xming;
-set path_latex=%%Disk%:\Pandoc;%Disk%:\TinyTeX\bin\win32;
- 
-path=%Disk%:;%path_python%;%path_msys2%;%path_tcc%;%path_git%;%path_cmake%;%path_coreutils%;
- 
-start /MIN cmd.exe
-start /MIN cmd.exe
-start /MIN cmd.exe
-start /MIN cmd.exe
- 
-start /MIN %Disk%:\wscite415\wscite\SciTE.exe
-start /MIN %Disk%:\wscite415\wscite\SciTE.exe
- 
-Exit</pre>
-<p><span style="color: #ff0000;">步驟4:</span></p>
-<p>完成以上步驟後，按取stop.bat使程式重新讀取</p>
-<p><span style="color: #ff0000;">步驟5:</span></p>
-<p>安裝完成後，打入程式碼(<span style="color: #ff6600;">pip install 模組名稱</span>)，以安裝剩餘未再啟動程式中的模組</p>
-<p>依序安裝順序為</p>
-<p><span style="color: #ff6600;">1-flask</span></p>
-<p><span style="color: #ff6600;">2-markdown</span></p>
-<p><span style="color: #ff6600;">3-bcml</span></p>
-<p><span style="color: #ff6600;">4-bs4</span></p>
-<p><span style="color: #ff6600;">5-flask_cors</span></p>
-<p><span style="color: #ff6600;">6-pelican</span></p>
-<p><span style="color: #ff6600;">7-leo</span></p>
-<p></p><h2>week3</h2>
-<p>看完CoppeliaSim之心得:</p>
-<p>首先簡略瀏覽關於coppeliaSim用戶手冊中所負責的部分區域檢視，大略看過標題及裡面分支出來的內容後，針對使用介面之解說有做進一步了解，甚至有做出特定使用者介面使少數特定族群受惠，對於視圖與位置操作方向也詳細說明並加入快捷鍵使用方式以及命令行的詳細解說。</p>
-<p>僅看第一個標題的內容就發現到以上幾個需要特別注意的重點，剩餘兩個標題所表達之內容便偏向於外部環境設定與模組方面的專業知識，藉由圖例所輔助說明能較為知道手冊所想表達的意涵，也能修正對於單單只看文字而想像出操作步驟與有附真實圖例比較之下的差異性，並導正之間所產生的誤會，也可以從而對內容加深印象。</p>
-<p>雖然負責的部分只有三個標題你的內容，不過卻蘊含這麼多需要注意的細節，也覺得不管是哪個部分都很重要，未來也會和隊友相互交流知道的資訊，以能平衡之間未能負責的區域內容。</p>
-<p><span style="color: #ff6600;">1-使用者介面(包含快捷鍵、視圖與頁面、命令列、操作方向與位置)</span></p>
-<p><span style="color: #ff6600;">2-場景與模組</span></p>
-<p><span style="color: #ff6600;">3-環境設定</span></p>
-<p></p><h2>week4</h2>
-<p><span style="color: #ff6600;">需製作分組報告3-5頁，使用pdf檔上傳。</span></p>
-<p>在我負責之部分第一項目首先講解到如何開始使用Webots的畫面與視窗，雖然這整本電子書都是在解說Webots介面使用，但在實際使用方面卻有所差別，以下為首要大略提到的標題及小標題的重點與補充說明。</p>
-<p><span style="color: #ff0000;">章節一；開始操作Webots</span></p>
-<p>目錄:</p>
-<p><img alt="" height="651" src="/images/chrome_2020-04-05_21-44-35.png" width="904"/><span style="color: #ff0000;">介紹Webots </span></p>
-<p><br/><span style="color: #333399;">原文重點:</span></p>
-<p><span style="color: #ff6600;">1</span>-It offers a rapid prototyping environment, that allows the user to create 3D virtual worlds with physics properties such as mass, joints, friction coefficients, etc.<br/> <span style="color: #ff6600;">2</span>-The user can add simple passive objects or active objects called mobile robots. These robots can have different locomotion schemes (wheeled robots, ，legged robots, or flying robots).<br/> <span style="color: #ff6600;">3</span>-Webots is well suited for research and educational projects related to mobile robotics. <br/> <span style="color: #ff6600;">4</span>-even if you don't know these languages, you can still program the e-puck and Hemisson robots using a simple graphical programming language called<br/> <span style="color: #ff6600;">5</span>-If you don't want to use existing robot models provided within Webots and would like to create your own robot models, or add special objects in the simulated environments, you will need a basic knowledge of 3D computer graphics and VRML97 description language. <br/> <span style="color: #ff6600;">6</span>- A world file doesn't contain the controller code of the robots; it only specifies the name of the controller that is required for each robot. <br/> <span style="color: #ff6600;">7</span>-it can execute operations that can normally only be carried out by a human operator and not by a real robot.</p>
-<p><span style="color: #333399;">中文概略解說:</span></p>
-<p>提供模擬環境，使用戶可創建物理特性(質量、摩擦係數等等)的3D虛擬世界，可添加各種不同輪型、飛行等機器人在景象中，且配備感測器、執行設備等(攝像機、馬達、接收器等)，也可對機器人做單獨編程。</p>
-<p>包含大量機械人模型與程式控制器範例包(可將程式轉移到e-puck，DARwIn-OP等真實機器人)，以幫助用戶熟Webots 。</p>
-<p><span style="color: #ff6600;">Webots在機器人技術上有一定程度的依靠，例如:移動機器人原型製作、多主體研究、教授機器人技術、機器人競賽等等涉略範圍。</span></p>
-<p>即使不知道python、c++、java等程式編碼的知識，依然可以使用BotStudio程式編碼器對機器人編輯。<br/>如果不喜歡模組中原有的機器人範例包，也可另外使用3D、VRML97描述語言的程式來創建模型並導入。<br/> <br/><span style="color: #ff6600;">Webots模擬組成條件:</span><br/> <span style="color: #ff0000;">1</span>-.wbt副檔名，定義多個既器人與環境，取決於外部(proto)，檔案儲存在每個Webots項目裡worlds子目錄中。<br/> <span style="color: #ff0000;">2</span>-在c++可進行修改可選之物理插件。<br/> <span style="color: #ff0000;">3</span>-機器人都由程式控制程序組成(python、c++、java)。<br/> <span style="color: #ff0000;">4</span>-對於環境中物件之方向、位置、形狀、顏色、亮度會仔細編輯。<br/> <span style="color: #ff0000;">5</span>-關節本身包含一個攝像頭，但World文件不包含機器人控制器代碼，只有指定每個機器人所需控制器名稱。</p>
-<p><br/>管理者可執行是因為操作者正在執行的關係，並不是由機器人執行操作，適合任何編碼語言，但與常規控制器來說管理者將有權使用特權操作(包含模擬控制)。</p>
-<p>開始Webots之操作</p>
-<p><span style="color: #ff6600;">主軸:主要為解說命令式與操作系統步驟</span></p>
-<p><span style="color: #ff0000;">中文解說:</span></p>
-<p><span style="color: #ff0000;">1</span>-<span style="color: #800080;">Linux</span>=執行Webots需輸入Webots指令</p>
-<p><span style="color: #ff0000;">2</span>-macOS=打開軟件包的目錄，點開Webots圖標</p>
-<p><span style="color: #ff0000;">3</span>-<span style="color: #800080;">Windows</span>=點選開始-&gt;程序文件/ Cyberbotics，並點擊Webots R2020a版本2之]圖標。</p>
-<p>也可以通過鍵入webots.bat從DOS控制台（cmd.exe）啟動Webots。</p>
-<p>僅從C：\ Program Files \ Webots \ msys64 \ mingw64 \ bin目錄執行（假設Webots已安裝在C：\ Program Files中），此命令才有效。</p>
-<p>如果將上述目錄添加到Path環境變量中，也可以從任何目錄工作。</p>
-<p>補充：直接從DOS控制台調用webots.exe可能無法工作，因為某些設置可能會丟失(請參閱webots.bat的內容)。</p>
-<p></p>
-<p><span style="color: #ff0000;">4</span>-<span style="color: #800080;">Command Line Arguments(命令行參數)</span>=從Linux 或 Mac或命令提示符（Windows）啟動Webots時，可以使用以下命令行選項：</p>
-<pre class="brush:plain;auto-links:false;toolbar:false" contenteditable="false">Usage: webots [options] [worldfile]
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
 
-Options:
+<!-- 啟用 LaTeX equations 編輯 -->
+<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
 
-  --help
-    Display this help message and exit.
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
 
-  --version
-    Display version information and exit.
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
 
-  --sysinfo
-    Display information about the system and exit.
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40723103網際內容管理系統網頁</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40723103網際內容管理系統網頁</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li><a href='Develop.html'>Develop</a><li class='has-children'><a href='Week.html'>Week</a><ul class='dropdown'><li><a href='week2.html'>week2</a><li><a href='week3.html'>week3</a><li><a href='week4.html'>week4</a><li><a href='week6.html'>week6</a><li><a href='week7.html'>week7</a></li></ul><li><a href='problem.html'>problem</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
 
-  --mode=&lt;mode&gt;
-    Choose the startup mode, overriding application preferences. The &lt;mode&gt;
-    argument must be either pause, realtime, run or fast.
-
-  --fullscreen
-    Start Webots in fullscreen.
-
-  --minimize
-    Minimize the Webots window on startup.
-
-  --batch
-    Prevent Webots from creating blocking pop-up windows.
-
-  --stdout
-    Redirect the stdout of the controllers to the terminal.
-
-  --stderr
-    Redirect the stderr of the controllers to the terminal.
-
-  --stream[="key[=value];..."]
-    Start the Webots streaming server. Parameters may be
-    given as an option:
-      port=1234          - Start the streaming server on port 1234.
-      monitorActivity    - Print a dot '.' on stdout every 5 seconds.
-      disableTextStreams - Disable the streaming of stdout and stderr.
-
-  --log-performance=&lt;file&gt;[,&lt;steps&gt;]
-    Measure the performance of Webots and log it in the file specified in the
-    &lt;file&gt; argument. The optional &lt;steps&gt; argument is an integer value that
-    specifies how many steps are logged. If the --sysinfo option is used, the
-    system information is prepended into the log file.
-
-Please report any bug to http://www.cyberbotics.com/bug</pre>
-<p></p>
-<p>選擇worldfile參數指定要打開的.wbt文件的名稱。</p>
-<p>如果未指定，則Webots嘗試打開最近打開的文件。</p>
-<p></p>
-<p><span style="color: #ff0000;">--minimize</span>選項用於在啟動時最小化（圖標化）Webots窗口。</p>
-<p>將跳過啟動屏幕和最終的“歡迎對話框”。</p>
-<p>從選項中自動啟動Webot時，可以使用此選項來避免窗口混亂。</p>
-<p><span style="color: #ff0000;">補充</span>:當指定--minimize時，Webots自動使用快速模式。</p>
-<p></p>
-<p><br/><span style="color: #ff0000;">--mode = &lt;mode&gt;</span>選項可用於以指定的模擬模式啟動Webot。</p>
-<p><span style="color: #ff0000;">四種可能的模擬模式是：暫停，實時，運行和快速。</span></p>
-<p>對應於Webots圖形用戶界面的模擬控制按鈕。將覆蓋但不修改Webots首選項中保存的啟動模式。</p>
-<p>例如:鍵入webots --mode = pause filename.wbt以暫停模式啟動Webots。</p>
-<p></p>
-<p><br/><span style="color: #ff0000;">--sysinfo</span>選項會顯示有關當前系統的雜項信息，並退出Webots。</p>
-<p></p>
-<p><span style="color: #ff0000;">--stdout和--stderr選項</span>具有將Webots控制台輸出重定向到調用終端或進程的作用。</p>
-<p>例如:1-這可用於將控制器輸出重定向到文件或將其通過管道傳遞給Shell命令。</p>
-<p><br/>        2---stdout重定向控制器的stdout流，而--stderr重定向stderr流。</p>
-<p><br/><span style="color: #ff0000;">補充</span>:stderr流還可能包含Webots錯誤或警告消息。</p>
-<p></p>
-<p><span style="color: #ff0000;">--stream選項</span>啟動Webots流服務器。</p>
-<p>可以選擇更改流服務器的默認參數。</p>
-<p>此選項是一個字符串，其中包含參數鍵及其值的列表，並用分號分隔。</p>
-<p><img alt="" height="235" src="/images/chrome_2020-04-08_03-08-04.png" width="900"/></p>
-<p><br/>(上圖表描述受支持的選項。)</p>
-<p><span style="color: #ff0000;">5</span>-<span style="color: #800080;">Safe Mode(安全模式)=</span>Webots可能無法啟動，因為阻止導致Webots或OpenGL崩潰的世界上。<br/>在這種情況下，可以在安全模式下啟動Webots。</p>
-<p>安全模式迫使Webots從一個空白的世界開始，減少所有OpenGL選項並存儲這些首選項。</p>
-<p>因此只需在運行Webots的環境中設置環境變量WEBOTS_SAFE_MODE。</p>
-<p>以這種方式成功啟動後，必須取消設置此環境變量，再次打開世界並增加OpenGL首選項。</p>
-<p><span style="color: #ff0000;">補充</span>:此操作可能會導致新的崩潰。</p>
-<p><span style="color: #ff6600;">on Windows(Windows操作):</span>打開環境變量系統對話框。</p>
-<p>在Windows開始菜單的搜索欄中查找“環境變量”，點擊“編輯系統環境變量”，開啟“系統屬性”對話框，進入“高級”選項卡。</p>
-<p>點擊底部的環境變量按鈕。</p>
-<p>添加新的WEBOTS_SAFE_MODE用戶環境變量。</p>
-<p>用戶變量面板中，點擊“新建”按鈕，添加名為WEBOTS_SAFE_MODE的新用戶變量，其值為true。</p>
-<p>之後照常啟動Webots。</p>
-<p><br/><span style="color: #ff6600;">On Linux and macOS:</span>輸入以下兩行指令碼</p>
-<p>export WEBOTS_SAFE_MODE=true<br/>webots</p>
-<p>即可開啟Webots。</p>
-<p>使用者介面</p>
-<p>The User Interface(使用者介面)</p>
-<p>Webots GUI由四個主要窗口組成：顯示並允許與3D模擬進行交互的3D窗口，表示當前世界的層次結構的“場景樹”，允許編輯源代碼的“文本”編輯器，以及同時顯示編譯和控制器輸出的控制台。</p>
-<p>GUI具有九個菜單：文件，編輯，視圖，模擬，構建，覆蓋，工具，嚮導和幫助。</p>
-<p><br/>文件菜單允許執行之文件操作：加載，保存等。</p>
-<p>新世界菜單項（和按鈕）在模擬窗口中打開一個僅包含ElevationGrid的新世界，在1 m x 1 m的表面上顯示為10 x 10正方形的棋盤。</p>
-<p>打開世界...菜單項（和按鈕）打開一個文件選擇對話框，該對話框允許您選擇要加載的“ .wbt”文件。</p>
-<p>通過“打開最近的世界”菜單項，可以從子菜單中顯示的列表中選擇一個最近打開的“ .wbt”文件，以重新打開該文件。</p>
-<p>“打開示例世界”菜單項將打開一個對話框，列出所有可用的示例世界，在其中可以通過在搜索字段中輸入文件名或其中的一部分來搜索要加載的特定“ .wbt”文件。</p>
-<p>“保存世界”菜單項（和按鈕）使用當前文件名（顯示在主窗口頂部的文件名）保存當前世界。在每個Save上，“。wbt”文件的內容都會被覆蓋，Webots不會創建任何備份副本，因此，您應謹慎使用此按鈕，並最終手動進行安全複製。</p>
-<p>“另存為...”菜單項（和按鈕）使用用戶輸入的新文件名保存當前世界。請注意，“。wbt”文件應始終保存在Webots項目目錄以及“ worlds”子目錄中，否則將無法重新打開該文件。</p>
-<p>“重新加載世界”菜單項（和按鈕）從已保存的版本重新加載當前世界，並從頭開始重新進行仿真。</p>
-<p>3D視窗</p>
-<p>情景樹</p>
-<p>優先選項</p>
-<p>Webots傳訊</p>
-<p>電腦設備</p><h2>week6</h2>
-<p>關於OBS操作說明</p>
-<p>步驟1</p>
-<p>下載可攜式OBS軟體並開啟畫面</p>
-<p>如圖下所示(紅框內為主要為點選區域)</p>
-<p><img alt="" height="439" src="/images/1.png" width="900"/></p>
-<p></p>
-<p>軟體開啟畫面如下</p>
-<p><img alt="" height="634" src="/images/2.png" width="900"/></p>
-<p>由於使用桌電操作，因此並未能有攝像頭影像出現。</p>
-<p>步驟2</p>
-<p>點選圖下畫面中加號符號，並選擇紅框內珠的圖示</p>
-<p><img alt="" height="634" src="/images/3.png" width="900"/></p>
-<p>之後跳出之視窗確認完畢後點選確定</p>
-<p><img alt="" height="346" src="/images/3-1.png" width="354"/></p>
-<p><img alt="" height="612" src="/images/3-2.png" width="722"/></p>
-<p>在下方圖示中如果是筆電設備會有攝像頭的畫面出現，之後將頭像放置在藍框處</p>
-<p><img alt="" height="422" src="/images/3-3.png" width="900"/></p>
-<p>之後按下右下方即可開始錄影。</p>
-<p>第二階段- Youtube金鑰</p>
-<p>步驟1</p>
-<p>登入google帳號並打開youtube，點選直播</p>
-<p><img alt="" height="707" src="/images/5.png" width="302"/></p>
-<p><img alt="" height="149" src="/images/6.png" width="255"/></p>
-<p>在新增直播中點選公開設定，建議是選擇不公開(只有連結才能閱覽的選項)，按下建立直播</p>
-<p>在建立過程中，會自動跳出串流設定說明，可得知金鑰密碼</p>
-<p>開啟OBS設定，點選串流，平台變更為YOUTUBE</p>
-<p><br/><img alt="" height="758" src="/images/4.png" width="983"/></p>
-<h2>week7</h2>
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">week6 << <a href='week6.html'>Previous</a> <a href='problem.html'>Next</a> >> problem<br /><h1>week7</h1>
 <p>Webots GUI由四個主要窗口組成：顯示並允許您與3D模擬進行交互的3D窗口，表示當前世界的層次結構的“場景樹”，允許您編輯源代碼的“文本”編輯器，以及最後，同時顯示編譯和控制器輸出的控制台。<br/>GUI具有九個菜單：文件，編輯，視圖，模擬，構建，覆蓋，工具，嚮導和幫助。</p>
 <p></p>
 <p>file menu文件菜</p>
@@ -383,20 +287,46 @@ Please report any bug to http://www.cyberbotics.com/bug</pre>
 <p>H:MM:SS:MMM</p>
 <p>其中H是小時數（可以是幾位數字），MM是分鐘數，SS是秒數，MMM是毫秒數（請參見此圖）。如果車速表的值大於1，則虛擬時間的進度要快於實時時間。</p>
 <p>可以在場景樹窗口的WorldInfo節點的basicTimeStep字段中設置模擬的基本時間步長。它以虛擬時間毫秒錶示。該時間步長的值定義了在步進模式下執行的時間步長。此步驟乘以同一WorldInfo節點的displayRefresh字段，以定義刷新顯示的頻率。</p>
-<p></p><h1>problem</h1>
-<p><span style="color: #ff6600;">Q1</span>在下載倉儲後進入近端時wsgi.py並不在該檔案夾中，且無法啟動近端</p>
-<p><span style="color: #ff6600;">A</span>由於倉儲在下載時並沒有更新，因此在CODE中可打以下兩行指令進行資料更新推進</p>
-<p><span style="color: #ff6600;">1-git submodule init</span></p>
-<p><span style="color: #ff6600;">2-git submodule update</span></p>
-<p>打完後便會更新檔案夾中的資料，會出現wsgi.py啟動檔案，即可正常進入近端</p>
-<p><img alt="" height="450" src="/images/cmd_2020-03-29_23-34-19.png" width="900"/></p>
-<p>以上為打完程式後可開啟wsgi.py之檔案</p>
-<p></p>
-<p><span style="color: #ff6600;">Q2<span style="color: #000000;">為何正常操作近端資料即將上傳時卻無法git add也無法正常推送改版動作</span></span></p>
-<p><span style="color: #ff6600;"><span style="color: #000000;"><span style="color: #ff6600;">A</span>在經過再三嘗試下重新下載該倉儲網址並重新進入近端並加以改寫後重新推送，即可修正錯誤。</span></span></p>
-<p><span style="color: #ff6600;"><span style="color: #000000;"><span style="color: #ff6600;">原因</span>:有可能因為重複進入近端的關係造成網頁識別錯誤，無法得知最新改版因此將推送的資料阻擋，並產生衝突(因為重複開啟近端網頁的緣故)</span></span></p>
-<p><span style="color: #ff6600;"><span style="color: #000000;"><img alt="" height="450" src="/images/1.png" width="900"/></span></span></p>
-<p><span color="#000000" style="color: #000000;">以上為推送錯誤範例</span></p>
-<p></p>
-<p><img alt="" height="431" src="/images/2.png" width="900"/><img alt="" height="431" src="/images/3.png" width="900"/></p>
-<p>上圖為git add 指令所產生錯誤</p>
+<p></p><br />week6 << <a href='week6.html'>Previous</a> <a href='problem.html'>Next</a> >> problem</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        </body></html>
+        
