@@ -403,8 +403,25 @@ Please report any bug to http://www.cyberbotics.com/bug</pre>
 <p>遠程啟動Webots（ssh）:可以使用ssh（或類似命令）在遠程計算機上啟動Webot。但是，Webots僅能獲得與本地（在同一台計算機上）運行的X服務器的X11連接才能工作。當前無法將Webots圖形輸出重定向到另一台計算機。</p>
 <p>運行Extern機器人控制器:介紹外部機器人控制器及其使用方法。</p>
 <p>轉移到自己的機器人:在移動機器人仿真中，將結果傳輸到真實的移動機器人上通常很有用。 Webots在設計時就考慮了這種傳輸功能。模擬盡可能地逼真，並且編程接口可以移植或連接到現有的真實機器人上。 Webots已經包含了許多現有機器人的傳輸系統，包括e-puckTM，DARwIn-OPTM，KheperaTM和HemissonTM。本節說明如何將自己的傳輸系統開發到自己的移動機器人。</p>
-<p>由於模擬只是真實機器人的物理近似，因此在開發真實機器人的傳輸機制時始終需要進行一些調整。這種調整將影響模擬模型，以便更好地匹配實際機器人的行為。</p>
-<p></p><h1>problem</h1>
+<h5>由於模擬只是真實機器人的物理近似，因此在開發真實機器人的傳輸機制時始終需要進行一些調整。這種調整將影響模擬模型，以便更好地匹配實際機器人的行為。</h5>
+<h2>week8</h2>
+<p>具備coppeliaSim環境，並安裝模組</p>
+<p><span style="color: #ff6600;">步驟1</span></p>
+<p>先去官網下載教育版本之<span>coppeliaSim</span>軟體</p>
+<p>網址:<a href="https://coppeliarobotics.com/winVersions">https://coppeliarobotics.com/winVersions</a></p>
+<p><img alt="" height="403" src="/images/0424-1.png" width="900"/></p>
+<p>以上紅框處為下載版本</p>
+<p></p>
+<p><span style="color: #ff6600;">步驟2</span></p>
+<p>下載並安裝軟體完成後，打開code輸入以下安裝模組指令</p>
+<p><span style="color: #ff6600;">1-&gt;&gt;pip install opencv-python</span></p>
+<p><span style="color: #ff6600;">2-&gt;&gt;pip install imutils</span></p>
+<p><span style="color: #ff6600;">3-&gt;&gt;pip install numpy</span></p>
+<p>輸入完以上三點模組安裝程式碼後即可完成環境具備操作</p>
+<p><img alt="" height="450" src="/images/0424-3.png" width="900"/></p>
+<p>以上為操作指令完成畫面</p>
+<p>之後打開軟體並開始熟悉操作，可先拉內建模組機器人練習使用。</p>
+<p><img alt="" height="483" src="/images/0424-2.png" width="900"/></p><h1>problem</h1>
 <p><span style="color: #ff6600;">Q1</span>在下載倉儲後進入近端時wsgi.py並不在該檔案夾中，且無法啟動近端</p>
 <p><span style="color: #ff6600;">A</span>由於倉儲在下載時並沒有更新，因此在CODE中可打以下兩行指令進行資料更新推進</p>
 <p><span style="color: #ff6600;">1-git submodule init</span></p>

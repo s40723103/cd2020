@@ -1,6 +1,7 @@
 <h1>About</h1>
 <p><span>group 3</span><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723103/cd2020">40723103</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723103.github.io/cd2020">40723103</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723110/cd2020">40723110</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723110.github.io/cd2020">40723110</a><span> </span><span>(group leader)</span><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723112/cd2020">40723112</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723112.github.io/cd2020">40723112</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723120/cd2020">40723120</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723120.github.io/cd2020">40723120</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723125/cd2020">40723125</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723125.github.io/cd2020">40723125</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723126/cd2020">40723126</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723126.github.io/cd2020">40723126</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723128/cd2020">40723128</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723128.github.io/cd2020">40723128</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723130/cd2020">40723130</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723130.github.io/cd2020">40723130</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723139/cd2020">40723139</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723139.github.io/cd2020">40723139</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723142/cd2020">40723142</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723142.github.io/cd2020">40723142</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723145/cd2020">40723145</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723145.github.io/cd2020">40723145</a><br/><span>Repository:<span> </span></span><a href="https://github.com/s40723146/cd2020">40723146</a><span><span> </span>| Site:<span> </span></span><a href="https://s40723146.github.io/cd2020">40723146</a></p>
-<p></p><h1>Develop</h1>
+<p>分組倉儲:<a href="https://s40723110.github.io/cd2020ag3/" rel="nofollow">https://s40723110.github.io/cd2020ag3/</a></p>
+<p><span>個人倉儲網站:</span><a href="https://s40723103.github.io/cd2020/content/index.html" rel="nofollow">https://s40723103.github.io/cd2020/content/index.html</a></p><h1>Develop</h1>
 <p><a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 的開發, 可以在一個目錄中放入 cmsimde, 然後將 up_dir 中的內容放到與 cmsimde 目錄同位階的地方, 使用 command 進入 cmsimde 目錄, 執行 python wsgi.py, 就可以啟動, 以瀏覽器 https://localhost:9443 就可以連接, 以 admin 作為管理者密碼, 就可以登入維護內容.</p>
 <p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
 <p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
@@ -402,8 +403,25 @@ Please report any bug to http://www.cyberbotics.com/bug</pre>
 <p>遠程啟動Webots（ssh）:可以使用ssh（或類似命令）在遠程計算機上啟動Webot。但是，Webots僅能獲得與本地（在同一台計算機上）運行的X服務器的X11連接才能工作。當前無法將Webots圖形輸出重定向到另一台計算機。</p>
 <p>運行Extern機器人控制器:介紹外部機器人控制器及其使用方法。</p>
 <p>轉移到自己的機器人:在移動機器人仿真中，將結果傳輸到真實的移動機器人上通常很有用。 Webots在設計時就考慮了這種傳輸功能。模擬盡可能地逼真，並且編程接口可以移植或連接到現有的真實機器人上。 Webots已經包含了許多現有機器人的傳輸系統，包括e-puckTM，DARwIn-OPTM，KheperaTM和HemissonTM。本節說明如何將自己的傳輸系統開發到自己的移動機器人。</p>
-<p>由於模擬只是真實機器人的物理近似，因此在開發真實機器人的傳輸機制時始終需要進行一些調整。這種調整將影響模擬模型，以便更好地匹配實際機器人的行為。</p>
-<p></p><h1>problem</h1>
+<h5>由於模擬只是真實機器人的物理近似，因此在開發真實機器人的傳輸機制時始終需要進行一些調整。這種調整將影響模擬模型，以便更好地匹配實際機器人的行為。</h5>
+<h2>week8</h2>
+<p>具備coppeliaSim環境，並安裝模組</p>
+<p>步驟1</p>
+<p>先去官網下載教育版本之<span>coppeliaSim</span>軟體</p>
+<p>網址:<a href="https://coppeliarobotics.com/winVersions">https://coppeliarobotics.com/winVersions</a></p>
+<p><img alt="" height="403" src="/images/0424-1.png" width="900"/></p>
+<p>以上紅框處為下載版本</p>
+<p></p>
+<p>步驟2</p>
+<p>下載並安裝軟體完成後，打開code輸入以下安裝模組指令</p>
+<p>1-&gt;&gt;pip install opencv-python</p>
+<p>2-&gt;&gt;pip install imutils</p>
+<p>3-&gt;&gt;pip install numpy</p>
+<p>輸入完以上三點模組安裝程式碼後即可完成環境具備操作</p>
+<p><img alt="" height="450" src="/images/0424-3.png" width="900"/></p>
+<p>以上為操作指令完成畫面</p>
+<p>之後打開軟體並開始熟悉操作，可先拉內建模組機器人練習使用。</p>
+<p><img alt="" height="483" src="/images/0424-2.png" width="900"/></p><h1>problem</h1>
 <p><span style="color: #ff6600;">Q1</span>在下載倉儲後進入近端時wsgi.py並不在該檔案夾中，且無法啟動近端</p>
 <p><span style="color: #ff6600;">A</span>由於倉儲在下載時並沒有更新，因此在CODE中可打以下兩行指令進行資料更新推進</p>
 <p><span style="color: #ff6600;">1-git submodule init</span></p>
